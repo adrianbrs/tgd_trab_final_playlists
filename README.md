@@ -44,3 +44,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 ## Models
 
 Mongoose models are located in [/server/models](/server/models) folder
+
+## API
+API endpoints are located in [/server/api](/server/api) folder
