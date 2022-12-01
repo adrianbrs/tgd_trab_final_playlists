@@ -1,4 +1,3 @@
-import { Types } from "mongoose";
 import { useApiErrorHandler } from "~~/server/composables/use_api_error_handler";
 import { Playlist } from "~~/server/models";
 import { IUser } from "~~/server/models/user.model";

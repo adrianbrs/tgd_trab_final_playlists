@@ -16,9 +16,7 @@ function toggleMenu() {
 
 const theme = useLocalStorage(
   "theme",
-  process.client && window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light"
+  window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
 );
 
 function toggleTheme() {

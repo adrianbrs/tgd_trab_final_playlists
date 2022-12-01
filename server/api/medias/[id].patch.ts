@@ -8,9 +8,8 @@ export default defineEventHandler(async (event) => {
     const mediaId = event.context.params.id;
     const data = await readBody(event);
 
-    if ("id" in data) {
-      throw createBadRequestError('Forbidden property "id"');
-    }
+    delete data["_id"];
+    delete data["id"];
 
     const media = await Media.findByIdAndUpdate(mediaId, data, {
       new: true,

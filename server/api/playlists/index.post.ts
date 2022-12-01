@@ -7,9 +7,9 @@ export default defineEventHandler(async (event) => {
   return useApiErrorHandler(async () => {
     const data = await readBody(event);
 
-    if ("id" in data) {
-      throw createBadRequestError('Forbidden property "id"');
-    }
+    delete data["_id"];
+    delete data["id"];
+
     const playlist = await (
       await Playlist.create(data)
     ).populate<{ owner: IUser }>("owner");

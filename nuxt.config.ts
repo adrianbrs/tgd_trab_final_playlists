@@ -2,7 +2,7 @@ import { repository } from "./package.json";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: true,
+  ssr: false,
   app: {
     head: {
       title: "Playlists | Trabalho final - Tecnologias para Gestão de Dados",

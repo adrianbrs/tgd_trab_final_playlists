@@ -104,7 +104,7 @@ function notify(text: string, color?: string) {
     <v-card-actions>
       <span class="px-4">
         <strong>{{ medias?.length }}</strong>
-        {{ medias?.length === 1 ? "mídia disponível" : "mídias disponíveis" }}
+        {{ medias?.length === 1 ? "mídia cadastrada" : "mídias cadastradas" }}
       </span>
 
       <v-spacer></v-spacer>
@@ -126,14 +126,14 @@ function notify(text: string, color?: string) {
           <th class="text-left">Fonte</th>
           <th class="text-left">URI</th>
           <th class="text-left">Duração</th>
-          <th class="text-center">Views</th>
-          <th class="text-center">Likes</th>
-          <th class="text-center">Dislikes</th>
+          <th class="text-left">Views</th>
+          <th class="text-left">Likes</th>
+          <th class="text-left">Dislikes</th>
           <th class="text-center">Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="media in medias" :key="media.id">
+        <tr v-for="media in medias" :key="media._id">
           <td>{{ media._id }}</td>
           <td>{{ media.title }}</td>
           <td>{{ media.source }}</td>
@@ -144,10 +144,10 @@ function notify(text: string, color?: string) {
           <td>{{ media.metadata.dislikes }}</td>
           <td>
             <div class="d-flex">
-              <v-btn icon @click="edit(media)">
+              <v-btn icon flat size="small" @click="edit(media)">
                 <v-icon icon="mdi-pencil"></v-icon>
               </v-btn>
-              <v-btn icon>
+              <v-btn icon flat size="small">
                 <v-icon icon="mdi-delete"></v-icon>
 
                 <v-menu activator="parent">
@@ -165,8 +165,8 @@ function notify(text: string, color?: string) {
     </v-table>
   </v-card>
 
-  <v-dialog v-model="editDialog" persistent>
-    <v-card max-width="1024" width="100%" class="mx-auto" :loading="loading">
+  <v-dialog v-model="editDialog" max-width="1024" persistent>
+    <v-card width="100%" :loading="loading">
       <v-card-text>
         <v-form ref="form">
           <v-container>

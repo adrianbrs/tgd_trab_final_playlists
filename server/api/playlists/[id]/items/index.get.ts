@@ -14,6 +14,6 @@ export default defineEventHandler(({ context }) => {
       .orFail()
       .populate<{ items: { media: IMedia }[] }>("items.media");
 
-    return playlist;
+    return playlist.items;
   });
 });

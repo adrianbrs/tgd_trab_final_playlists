@@ -32,9 +32,10 @@ const itemSchema = new Schema<IPlaylistItem>(
     },
   },
   {
+    _id: true,
     virtuals: true,
-    toJSON: { virtuals: true, getters: true },
-    toObject: { virtuals: true, getters: true },
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 
@@ -62,8 +63,8 @@ const playlistSchema = new Schema<IPlaylist, PlaylistModel>(
   },
   {
     virtuals: true,
-    toJSON: { virtuals: true, getters: true },
-    toObject: { virtuals: true, getters: true },
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 
@@ -71,13 +72,15 @@ playlistSchema.static(
   "createItem",
   async function (
     item: Partial<IPlaylistItem> & { media: Types.ObjectId | string }
-  ): Promise<Partial<IPlaylistItem>> {
+  ): Promise<any> {
     const media = await Media.findById(item.media).orFail();
+
     return {
       end: media.duration,
       title: media.title,
       ...item,
       media,
+      _id: undefined as any,
     };
   }
 );

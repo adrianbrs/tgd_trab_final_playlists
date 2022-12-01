@@ -144,10 +144,11 @@ function getAddressText(user: any) {
           <th class="text-left">Nome de usuário</th>
           <th class="text-left">Email</th>
           <th class="text-left">Endereço</th>
+          <th class="text-center">Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="user in users" :key="user.id">
+        <tr v-for="user in users" :key="user._id">
           <td>{{ user._id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.username }}</td>
@@ -155,10 +156,10 @@ function getAddressText(user: any) {
           <td>{{ getAddressText(user) }}</td>
           <td>
             <div class="d-flex">
-              <v-btn icon @click="edit(user)">
+              <v-btn icon flat size="small" @click="edit(user)">
                 <v-icon icon="mdi-pencil"></v-icon>
               </v-btn>
-              <v-btn icon>
+              <v-btn icon flat size="small">
                 <v-icon icon="mdi-delete"></v-icon>
 
                 <v-menu activator="parent">
@@ -176,8 +177,8 @@ function getAddressText(user: any) {
     </v-table>
   </v-card>
 
-  <v-dialog v-model="editDialog" persistent>
-    <v-card max-width="1024" width="100%" class="mx-auto" :loading="loading">
+  <v-dialog v-model="editDialog" max-width="1024" persistent>
+    <v-card width="100%" :loading="loading">
       <v-card-text>
         <v-form ref="form">
           <v-container>

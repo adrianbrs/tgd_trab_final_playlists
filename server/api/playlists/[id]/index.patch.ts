@@ -9,9 +9,8 @@ export default defineEventHandler(async (event) => {
     const playlistId = event.context.params.id;
     const data = await readBody(event);
 
-    if ("id" in data) {
-      throw createBadRequestError('Forbidden property "id"');
-    }
+    delete data["_id"];
+    delete data["id"];
 
     const playlist = await Playlist.findByIdAndUpdate(playlistId, data, {
       new: true,

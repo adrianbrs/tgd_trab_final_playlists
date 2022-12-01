@@ -7,9 +7,8 @@ export default defineEventHandler(async (event) => {
     const userId = event.context.params.id;
     const data = await readBody(event);
 
-    if ("id" in data) {
-      throw createBadRequestError('Forbidden property "id"');
-    }
+    delete data["_id"];
+    delete data["id"];
 
     const user = await User.findByIdAndUpdate(userId, data, {
       new: true,
