@@ -106,7 +106,10 @@ function getAddressText(user: any) {
 </script>
 
 <template>
-  <h1>Usuários</h1>
+  <div class="d-flex align-center mb-4">
+    <v-btn icon="mdi-arrow-left" size="small" flat class="mr-4" to="/"></v-btn>
+    <h1>Usuários</h1>
+  </div>
 
   <v-snackbar :timeout="3000" v-model="snackbar.active" :color="snackbar.color">
     {{ snackbar.text }}

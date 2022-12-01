@@ -109,7 +109,10 @@ function notify(text: string, color?: string) {
 </script>
 
 <template>
-  <h1>Playlists</h1>
+  <div class="d-flex align-center mb-4">
+    <v-btn icon="mdi-arrow-left" size="small" flat class="mr-4" to="/"></v-btn>
+    <h1>Playlists</h1>
+  </div>
 
   <v-snackbar :timeout="3000" v-model="snackbar.active" :color="snackbar.color">
     {{ snackbar.text }}
