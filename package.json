@@ -1,4 +1,5 @@
 {
+  "name": "tgd_trab_final_playlists",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -7,11 +8,23 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "author": {
+    "name": "Adrian Cerbaro",
+    "email": "adrian@cerbaro.dev",
+    "url": "https://cerbaro.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianbrs/tgd_trab_final_playlists.git"
+  },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.6",
     "nuxt": "3.0.0"
   },
   "dependencies": {
     "@mdi/font": "^7.0.96",
+    "dayjs": "^1.11.6",
+    "lodash-es": "^4.17.21",
     "mongoose": "^6.7.5",
     "sass": "^1.56.1",
     "vuetify": "^3.0.3"

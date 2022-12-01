@@ -1,3 +1,9 @@
 export default defineEventHandler(async (event) => {
-    console.log(`${event.node.req.method} ${event.path}`);
+  const { path, node } = event;
+
+  if (path && /^\/api\//.test(path)) {
+    const req = node.req;
+    const { method, url } = req;
+    console.log(`${method} ${url}`);
+  }
 });
